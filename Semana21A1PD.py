@@ -42,15 +42,15 @@ class ContaCorrente(ContaBancaria):
     def emitir_cheque(self, valor):
         if self.saldo + self.limite_cheque_especial >= valor:
             self.saldo -= valor
-            self.registrar_transacao("Emissão de Cheque", valor)
+            self.registrar_transacao("Emissão de Cheque especial", valor)
         else:
-            print("Limite de cheque especial excedido.")
+            print("Limite de cheque ultrapassado.")
 
 class ContaPoupanca(ContaBancaria):
     def calcular_juros_mensal(self, taxa_juros):
         juros = self.saldo * (taxa_juros / 100)
         self.saldo += juros
-        self.registrar_transacao("Juros Mensais", juros)
+        self.registrar_transacao("Juros atuais e mensais", juros)
 
 
 class ContaInvestimento(ContaBancaria):
